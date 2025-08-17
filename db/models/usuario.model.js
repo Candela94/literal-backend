@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 const options = {
-    collection: 'usuarios',
+    collection: 'admin',
     strict: true,
 
     collation: {
@@ -13,7 +13,7 @@ const options = {
 
 
 
-const usuarioSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
 
 
 
@@ -65,4 +65,4 @@ const usuarioSchema = new mongoose.Schema({
 
 
 
-export const Usuario = mongoose.model("Usuario", usuarioSchema)
+export const Admin = mongoose.model("admin", adminSchema)
