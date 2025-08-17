@@ -2,16 +2,14 @@
 
 import { Router } from "express";
 
-import { v2 as cloudinary } from "cloudinary";
 
 import { config } from "dotenv";
 
-import fs from 'fs'
 import { AdminMiddleware, authMiddleWare } from "../middlewares/auth.middleware.js";
-import { Producto } from "../db/models/producto.model.js";
 import { uploadFiles } from "../middlewares/uploads.js";
 import { uploadProducto } from "../controllers/uploads.controllers.js";
 import { getAllProductos, getProducto, deleteProducto } from "../controllers/productos.controllers.js";
+import { loginUser, registerUser } from "../controllers/auth.controllers.js";
 
 
 config() //cargamos variables de entorno 
@@ -33,6 +31,21 @@ router.post('/admin/uploads',
     ]), 
     uploadProducto
 );
+
+
+
+
+// ---------------------------------
+//       REGISTRO/LOGIN 
+// ---------------------------------
+
+
+router.post("/admin/register", registerUser)
+
+
+router.post("/admin/login", loginUser)
+
+
 
 
 
