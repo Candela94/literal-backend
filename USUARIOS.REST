@@ -1,0 +1,15 @@
+
+
+
+@dominio =http://localhost:3000
+
+
+### Registro
+POST {{dominio}}/api/v1/admin/register
+Content-Type: application/json
+
+{
+    "usuario":"admin-literal",
+    "email":"admin-literal@gmail.com",
+    "password":"admin-literal"
+}
