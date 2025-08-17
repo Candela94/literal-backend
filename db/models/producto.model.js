@@ -24,7 +24,13 @@ const productoSchema = new mongoose.Schema({
 
     nombre: String,
 
+    precio: String, 
+
     descripcion: String, 
+    
+    talla: String,
+
+    dimensiones: String,
 
 
     createdAt: {

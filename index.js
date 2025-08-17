@@ -46,9 +46,9 @@ conectarDB();
 app.use("/api/v1", router)
 
 
-// app.listen( PORT ,'0.0.0.0', () => {
-//     console.log(`Servidor funcionando en ${BACKEND_URL}`)
-// })
+app.listen( PORT ,'0.0.0.0', () => {
+    console.log(`Servidor funcionando en ${BACKEND_URL}`)
+})
 
 app.listen( PORT , () => {
     console.log(`Servidor funcionando en ${URL_LOCAL}`)
