@@ -53,7 +53,7 @@ export const registerUser = async (req, res, next) => {
         const token = jwt.sign(
             {
                 userId: user._id,
-                name: user.name,
+                usuario: user.usuario,
 
             },
 
@@ -75,7 +75,7 @@ export const registerUser = async (req, res, next) => {
             token,
             user: {
                 id: user._id,
-                nombre: user.nombre,
+                nombre: user.usuario,
                 email: user.email,
                 usuario: user.usuario
             }
@@ -156,7 +156,7 @@ export const loginUser = async (req, res, next) => {
             user: {
 
                 id: user._id,
-                nombre: user.nombre,
+                nombre: user.usuario,
                 email: user.email,
                 usuario:user.usuario,
                 role:user.role
