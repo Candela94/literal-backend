@@ -26,12 +26,11 @@ const router = Router()
 router.post('/admin/uploads', 
     AdminMiddleware, 
     uploadFiles.fields([
-        { name: 'imgprod' },
-        { name: 'audio' }
+        { name: 'portada', maxCount: 1 },
+        { name: 'imagenes', maxCount: 10 }
     ]), 
     uploadProducto
 );
-
 
 
 
