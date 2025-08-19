@@ -27,7 +27,7 @@ router.post('/admin/uploads',
     AdminMiddleware, 
     uploadFiles.fields([
         { name: 'portada', maxCount: 1 },
-        { name: 'imagenes', maxCount: 10 }
+        { name: 'imgprod', maxCount: 10 }
     ]), 
     uploadProducto
 );
