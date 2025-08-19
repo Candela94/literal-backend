@@ -2,8 +2,15 @@
 
 import multer from "multer";
 import path from 'path'
+import fs from 'fs'
 
 
+
+const uploadDir = 'public/uploads/imagenes';
+
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 // 1. Configuramos almacenamiento de Multer
 
