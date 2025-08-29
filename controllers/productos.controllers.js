@@ -2,6 +2,13 @@
 
 import { Producto } from "../db/models/producto.model.js";
 
+const responseAPI = {
+    msg: "",
+    data: [],
+    status: "ok"
+
+}
+
 
 //Obtener todos los productos
 export const getAllProductos = async (req, res, next) => {
