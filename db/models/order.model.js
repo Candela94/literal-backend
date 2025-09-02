@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Producto } from "./producto.model";
+import { Producto } from "./producto.model.js";
 
 const options = {
     collection: 'order',

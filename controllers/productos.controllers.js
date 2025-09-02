@@ -1,7 +1,6 @@
 
 
 import { Producto } from "../db/models/producto.model.js";
-
 const responseAPI = {
     msg: "",
     data: [],
