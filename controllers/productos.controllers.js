@@ -76,7 +76,7 @@ export const deleteProducto = async (req, res, next) => {
 
     try {
 
-        const eliminado = await Cancion.findByIdAndDelete(pid);
+        const eliminado = await Producto.findByIdAndDelete(pid);
         responseAPI.data = eliminado;
         responseAPI.msg = `Producto con id ${pid} eliminado con éxito`
         responseAPI.status = 'ok';

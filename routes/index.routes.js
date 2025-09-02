@@ -10,6 +10,7 @@ import { uploadFiles } from "../middlewares/uploads.js";
 import { uploadProducto } from "../controllers/uploads.controllers.js";
 import { getAllProductos, getProducto, deleteProducto } from "../controllers/productos.controllers.js";
 import { loginUser, registerUser } from "../controllers/auth.controllers.js";
+import { createOrder } from "../controllers/order.controllers.js";
 
 
 config() //cargamos variables de entorno 
@@ -67,6 +68,13 @@ router.get("/products/:pid", getProducto)
 router.delete("/products/:pid",deleteProducto)
 
 
+
+
+// ---------------------------------
+//       PASARELA DE PAGO 
+// ---------------------------------
+
+router.post('/order', createOrder)
 
 
 
