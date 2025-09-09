@@ -12,6 +12,7 @@ import { getAllProductos, getProducto, deleteProducto } from "../controllers/pro
 import { loginUser, registerUser } from "../controllers/auth.controllers.js";
 import { createOrder } from "../controllers/order.controllers.js";
 
+import { createPaymentIntent } from "../controllers/payment.controllers.js";
 
 config() //cargamos variables de entorno 
 
@@ -74,7 +75,19 @@ router.delete("/products/:pid",deleteProducto)
 //       PASARELA DE PAGO 
 // ---------------------------------
 
+
+//Dirección de envío
+
 router.post('/order', createOrder)
+
+
+//Pago 
+
+router.post('/create-payment', createPaymentIntent)
+
+
+
+
 
 
 

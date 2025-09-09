@@ -11,6 +11,9 @@ export const DB_PASS =  process.env.DB_PASS
 export const CLUSTER =  process.env.CLUSTER 
 export const DATABASE = process.env.DATABASE 
 
+
+export const BACKEND_LOCAL= process.env.BACKEND_LOCAL
+
  export const JWT_SECRET = process.env.JWT_SECRET 
 
 

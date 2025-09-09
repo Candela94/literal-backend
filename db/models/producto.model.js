@@ -32,6 +32,8 @@ const productoSchema = new mongoose.Schema({
 
     dimensiones: String,
 
+    hover:String,
+
 
     createdAt: {
 
