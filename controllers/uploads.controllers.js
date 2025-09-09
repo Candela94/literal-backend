@@ -35,6 +35,7 @@ export const uploadProducto = async (req, res, next) => {
 
         let imageUrls = [];
         let portadaUrl = null;
+        let hoverUrl = null;
 
         // Procesar portada si existe
         if (req.files.portada && req.files.portada.length > 0) {
@@ -50,6 +51,21 @@ export const uploadProducto = async (req, res, next) => {
             // Eliminar archivo local de portada
             fs.unlinkSync(portadaFile.path);
         }
+
+
+//procesar hover si existe
+        if (req.files.hover && req.files.hover.length > 0) {
+            const hoverFile = req.files.hover[0];
+            
+            const hoverUpload = await cloudinary.uploader.upload(hoverFile.path, {
+                folder: 'imagenes_producto',
+                resource_type: 'image'
+            });
+            
+            hoverUrl = hoverUpload.secure_url;
+            fs.unlinkSync(hoverFile.path);
+        }
+        
 
         // Procesar imágenes adicionales si existen
         if (req.files.imgprod && req.files.imgprod.length > 0) {
@@ -76,9 +92,12 @@ export const uploadProducto = async (req, res, next) => {
         }
 
         // Crear producto en la base de datos
+
         const producto = await Producto.create({
             imagenes: imageUrls,
-            portada: portadaUrl, // Ahora guardamos la URL de Cloudinary, no req.body.portada
+            portada: portadaUrl, 
+            hover: hoverUrl, 
+
             nombre: req.body.nombre,
             precio: req.body.precio,
             descripcion: req.body.descripcion,
@@ -102,6 +121,7 @@ export const uploadProducto = async (req, res, next) => {
         
         // Limpiar archivos en caso de error
         if (req.files) {
+
             if (req.files.portada) {
                 req.files.portada.forEach(file => {
                     if (fs.existsSync(file.path)) {
@@ -109,6 +129,15 @@ export const uploadProducto = async (req, res, next) => {
                     }
                 });
             }
+
+            if (req.files.hover) { 
+                req.files.hover.forEach(file => {
+                    if (fs.existsSync(file.path)) {
+                        fs.unlinkSync(file.path);
+                    }
+                });
+            }
+
             if (req.files.imgprod) {
                 req.files.imgprod.forEach(file => {
                     if (fs.existsSync(file.path)) {
